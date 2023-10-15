@@ -33,7 +33,6 @@ describe("index.ts", () => {
             const {paragraphs} = await readJsonResource<{
                 paragraphs: string[]
             }>(__dirname, "lorem-ipsum-paragraphs.json");
-            const hashes = paragraphs.map(sha256Hex);
             expect(paragraphs.map(sha256Hex)).toStrictEqual([
                 "ef2c11ccf4de520e934b7c93437a37772f4edeb0807a5cdb15dbe13e27e184df",
                 "bfc16bd8b55ff44d0432f680e606fd3250e0c680ae29dd8cc9f80597f4679f61",
