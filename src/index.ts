@@ -6,6 +6,24 @@ import {glob} from "glob";
 import {createBrotliDecompress} from "zlib";
 
 /**
+ * Read the contents of a UTF-8 text file as a JSON object of some type.
+ *
+ * @param base
+ * @param relative
+ */
+export async function readJsonResource<T>(base: string, relative: string) {
+    const resources = await readTextResources(base, relative);
+    if (0 === resources.length) {
+        throw Error(`Resource [${relative}] relative to base [${base}] was not found.`);
+    } else if (1 !== resources.length) {
+        const matches = resources.map(([{base, dir}]) => `${dir}/${base}`).join("], [");
+        throw Error(`Resource [${relative}] relative to base [${base}] was not unique: [${matches}]`);
+    }
+    const [[, text]] = resources;
+    return JSON.parse(text) as T;
+}
+
+/**
  * Read the contents of one or more UTF-8 text files.
  *
  * If the matched file(s) have any of the following filename extensions, they are transformed appropriately before they
