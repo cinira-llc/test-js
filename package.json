@@ -1,6 +1,5 @@
 {
-  "name": "@mattj65817/test-js",
-  "version": "1.0.0",
+  "name": "@cinira-llc/test-js",
   "description": "Cinira Test library for JavaScript",
   "exports": {
     ".": {
@@ -11,7 +10,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "repository": {
-    "url": "git+https://github.com/mattj65817/test-js.git"
+    "url": "git+https://github.com/cinira-llc/test-js.git"
   },
   "scripts": {
     "build": "tsc -p ./tsconfig.json && tsc -p ./tsconfig-cjs.json && tsc -p ./tsconfig-types.json",
@@ -26,7 +25,7 @@
     "./dist"
   ],
   "keywords": [],
-  "author": "Matt Jensen <mjensen65816@gmail.com>",
+  "author": "Matt Jensen <mjensen@cinira.com>",
   "license": "ISC",
   "dependencies": {
     "glob": "^10.3.12",
